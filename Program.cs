@@ -12,6 +12,7 @@ conflicts, and that would be a very sad thing. - Aeolia Schenberg, 2091 A.D.
 　　 　 ヽ　 　     　 ／,ｿ
 　　　　　ヽ､.＿＿__r',／
 */
+using Microsoft.Win32;
 using System;
 
 namespace NGSChecker
@@ -35,8 +36,17 @@ namespace NGSChecker
             Console.WriteLine("64-bit OS: " + Is64bit);
             if (!Is64bit)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Your OS is not 64 bits. Assuming your CPU supports it, you must reinstall Windows as a 64-bit OS.");
+                var rk = Registry.LocalMachine.OpenSubKey("HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0");
+                if (rk.GetValue("Identifier").ToString().IndexOf("64") > 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("Your OS is not 64-bit (" + rk.GetValue("Identifier").ToString() + "). Your CPU appears to support 64-bit, so you must reinstall Windows as a 64-bit OS.");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Your OS is not 64-bit (" + rk.GetValue("Identifier").ToString() + "). Your CPU also does not appear to support 64-bit. You may need to purchase a newer CPU.");
+                }
                 IssueFound = true;
                 Console.ForegroundColor = ConsoleColor.White;
             }
