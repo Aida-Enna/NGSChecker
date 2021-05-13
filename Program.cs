@@ -39,6 +39,7 @@ namespace NGSChecker
             Console.WriteLine("64-bit OS: " + Is64bit);
             if (!Is64bit)
             {
+                //Check the registry to see what the processor calls itself
                 var rk = Registry.LocalMachine.OpenSubKey("HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0");
                 if (rk.GetValue("Identifier").ToString().IndexOf("64") > 0)
                 {
