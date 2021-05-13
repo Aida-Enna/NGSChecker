@@ -2,15 +2,6 @@
 Humans must learn to apply their intelligence correctly and evolve beyond their current state.
 People must change. Otherwise, even if humanity expands into space, it will only create new
 conflicts, and that would be a very sad thing. - Aeolia Schenberg, 2091 A.D.
-　　　　 ,r‐､　　　　 　, -､
-　 　 　 !　 ヽ　　 　 /　　}
-　　　　 ヽ､ ,! -─‐- ､{　　ﾉ
-　　　 　 ／｡　｡　　　 r`'､´
-　　　　/ ,.-─- ､　　 ヽ､.ヽ　　　Haro
-　　 　 !/　　　　ヽ､.＿, ﾆ|　　　　　Haro!
- 　　　 {　　　 　  　 　 ,'
-　　 　 ヽ　 　     　 ／,ｿ
-　　　　　ヽ､.＿＿__r',／
 */
 using Microsoft.Win32;
 using System;
