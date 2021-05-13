@@ -14,6 +14,7 @@ conflicts, and that would be a very sad thing. - Aeolia Schenberg, 2091 A.D.
 */
 using Microsoft.Win32;
 using System;
+using System.Reflection;
 
 namespace NGSChecker
 {
@@ -28,6 +29,7 @@ namespace NGSChecker
             bool HasAVXSupport = CheckForAVX();
             bool IssueFound = false;
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("NGS Checker v" + Assembly.GetExecutingAssembly().GetName().Version.ToString());
             Console.WriteLine("This will check to make sure your system will work after the Graphics Update for PSO2.");
             Console.Write("The source code for this program can be found at ");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
