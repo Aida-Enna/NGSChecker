@@ -31,8 +31,9 @@ namespace NGSChecker
             Console.WriteLine("This will check to make sure your system will work after the Graphics Update for PSO2.");
             Console.Write("The source code for this program can be found at ");
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("https://github.com/Aida-Enna/NGSChecker");
+            Console.Write("https://github.com/Aida-Enna/NGSChecker");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(".");
             Console.WriteLine("64-bit OS: " + Is64bit);
             if (!Is64bit)
             {
