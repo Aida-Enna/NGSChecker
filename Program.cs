@@ -1,4 +1,18 @@
-﻿using System;
+﻿/*
+Humans must learn to apply their intelligence correctly and evolve beyond their current state.
+People must change. Otherwise, even if humanity expands into space, it will only create new
+conflicts, and that would be a very sad thing. - Aeolia Schenberg, 2091 A.D.
+　　　　 ,r‐､　　　　 　, -､
+　 　 　 !　 ヽ　　 　 /　　}
+　　　　 ヽ､ ,! -─‐- ､{　　ﾉ
+　　　 　 ／｡　｡　　　 r`'､´
+　　　　/ ,.-─- ､　　 ヽ､.ヽ　　　Haro
+　　 　 !/　　　　ヽ､.＿, ﾆ|　　　　　Haro!
+ 　　　 {　　　 　  　 　 ,'
+　　 　 ヽ　 　     　 ／,ｿ
+　　　　　ヽ､.＿＿__r',／
+*/
+using System;
 
 namespace NGSChecker
 {
@@ -14,7 +28,10 @@ namespace NGSChecker
             bool IssueFound = false;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("This will check to make sure your system will work after the Graphics Update for PSO2.");
-            Console.WriteLine("The source code for this program can be found at ");
+            Console.Write("The source code for this program can be found at ");
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("https://github.com/Aida-Enna/NGSChecker");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("64-bit OS: " + Is64bit);
             if (!Is64bit)
             {
@@ -37,7 +54,7 @@ namespace NGSChecker
                 Console.WriteLine("No issues were found when checking to make sure your system will run PSO2 after the graphics update. Awesome!");
             }
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Press any key to exit.");
+            Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
 
