@@ -5,6 +5,7 @@ conflicts, and that would be a very sad thing. - Aeolia Schenberg, 2091 A.D.
 */
 using Microsoft.Win32;
 using System;
+using System.Management;
 using System.Reflection;
 
 namespace NGSChecker
@@ -27,6 +28,13 @@ namespace NGSChecker
             Console.Write("https://github.com/Aida-Enna/NGSChecker");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(".");
+            string ProcessorName = "Unknown??";
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
+            foreach (ManagementObject mo in mos.Get())
+            {
+                ProcessorName = mo["Name"].ToString();
+            }
+            Console.WriteLine("Processor Name: " + ProcessorName);
             Console.WriteLine("64-bit OS: " + Is64bit);
             if (!Is64bit)
             {
