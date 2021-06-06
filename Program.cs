@@ -94,9 +94,6 @@ namespace NGSChecker
         {
             try
             {
-                Console.WriteLine("Thing: " + GetEnabledXStateFeatures());
-                Console.WriteLine("Thing 2: " +  (GetEnabledXStateFeatures() & 4));
-                var Thing = (GetEnabledXStateFeatures() & 4) != 0;
                 return (GetEnabledXStateFeatures() & 4) != 0;
             }
             catch
