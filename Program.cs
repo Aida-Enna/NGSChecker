@@ -31,10 +31,20 @@ namespace NGSChecker
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(".");
                 string ProcessorName = "Unknown??";
-                ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
-                foreach (ManagementObject mo in mos.Get())
+                try
                 {
-                    ProcessorName = mo["Name"].ToString();
+                    ManagementObjectSearcher mos = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_Processor");
+                    foreach (ManagementObject mo in mos.Get())
+                    {
+                        ProcessorName = mo["Name"].ToString();
+                    }
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Failed to get the proper name of the processor. Is Windows corrupted somehow? This issue may prevent the game from working. If you manage to fix it, please let me know via github or discord (Aida Enna#0001).");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    ProcessorName = "Unknown (Failed to retrieve)";
                 }
                 Console.WriteLine("Processor Name: " + ProcessorName);
                 Console.WriteLine("64-bit OS: " + Is64bit);
@@ -84,6 +94,9 @@ namespace NGSChecker
         {
             try
             {
+                Console.WriteLine("Thing: " + GetEnabledXStateFeatures());
+                Console.WriteLine("Thing 2: " +  (GetEnabledXStateFeatures() & 4));
+                var Thing = (GetEnabledXStateFeatures() & 4) != 0;
                 return (GetEnabledXStateFeatures() & 4) != 0;
             }
             catch
